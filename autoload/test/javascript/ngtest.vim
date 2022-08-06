@@ -17,6 +17,10 @@ function! test#javascript#ngtest#build_args(args) abort
 endfunction
 
 function! test#javascript#ngtest#build_position(type, position) abort
+  if a:type !=# 'suite'
+    return ["--include", a:position['file']]
+  endif
+
   return []
 endfunction
 
